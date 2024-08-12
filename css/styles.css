@@ -1,0 +1,199 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header nav {
+    background-color: #007BFF;
+    padding: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header nav ul li {
+    margin: 0.5em 0;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+.language-switcher {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5em;
+}
+
+.language-switcher a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.language-switcher a:hover {
+    background-color: #0056b3;
+}
+
+
+/* General Footer Styles */
+footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: auto; /* Se asegura de que el footer quede al final */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+}
+footer p {
+    margin: 0;
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .language-switcher {
+        justify-content: center;
+        margin: 0.5em 0;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #f39c12; /* Color al pasar el mouse */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .language-switcher {
+        justify-content: center;
+        margin: 0.5em 0;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+}
+
+
+#podcast {
+    padding: 2em;
+    text-align: center;
+}
+
+.podcast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.podcast-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+.podcast-details {
+    max-width: 600px;
+    text-align: left;
+}
+
+audio {
+    width: 100%;
+    margin-top: 1em;
+}
+
+.spotify-embed {
+    margin-top: 1em;
+    width: 100%;
+}
+
+.spotify-embed iframe {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Animaciones para el scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-on-scroll.scroll-in-view {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+    .podcast-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .podcast-details {
+        text-align: left;
+        margin-left: 2em;
+    }
+
+    .podcast-image img {
+        max-width: 400px;
+    }
+}
