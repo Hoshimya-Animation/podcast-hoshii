@@ -8,12 +8,11 @@ body {
     color: #333;
 }
 main {
-    flex: 0;
+    flex: 1;
     padding: 2em 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2em 1em;
     min-height: calc(100vh - 140px); /* Ajusta según header + footer */
 }
 

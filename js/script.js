@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.addEventListener('scroll', scrollHandler);
     scrollHandler(); // Trigger the function on page load
-    
-});
-document.getElementById("menu-toggle").addEventListener("click", function () {
-    document.getElementById("nav-menu").classList.toggle("show");
+
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+        document.getElementById("nav-menu").classList.toggle("show");
+    });
 });
