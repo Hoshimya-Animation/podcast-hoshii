@@ -38,30 +38,31 @@
         </nav>
       </div>
     </header>
-  <main class="container">
-    <h1>Todos los Episodios</h1>
-    <section class="episodes-grid">
-      <!-- Aquí se renderizan todas las cards de episodios -->
-      <article class="card" data-tags="anime cultura">
-        <img src="https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg" alt="Episodio 1">
-        <div class="card-body">
-          <h2><a href="#">Sociología del Anime</a></h2>
-          <p>Exploramos cómo el anime influye en las comunidades locales...</p>
-          <div class="card-meta">
-            <span>Publicado: Ene 2026</span>
-            <span>Duración: 45 min</span>
-          </div>
+<main class="container">
+  <h1>Episodio actual</h1>
+
+  <!-- Contenedor de artículos estáticos (opcional) -->
+  <div class="articles-container">
+    <article class="card" data-tags="anime cultura">
+      <img src="https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg" alt="Episodio 1">
+      <div class="card-body">
+        <h2><a href="#">Sociología del Anime</a></h2>
+        <p>Exploramos cómo el anime influye en las comunidades locales...</p>
+        <div class="card-meta">
+          <span>Publicado: Ene 2026</span>
+          <span>Duración: 45 min</span>
         </div>
-      </article>
-      <!-- más episodios -->
-    </section>
-  <h1>Todos los Episodios</h1>
+      </div>
+    </article>
+    <!-- más artículos estáticos si es necesario -->
+    <!-- Contenedor dinámico de episodios -->
+  <h2>Episodios anteriores</h2>
+  <div id="episodes-list" class="episodes-grid"></div>
 
-  <!-- Contenedor de episodios -->
-<div id="episodes-list" class="episodes-grid"></div>
-<div id="pagination" class="pagination"></div>
-
+  <!-- Contenedor de paginación -->
+  <div id="pagination" class="pagination"></div>
 </main>
+
 
 <!-- Footer -->
 <footer class="site-footer" id="contacto">
@@ -84,7 +85,6 @@
 
     <div class="footer-actions">
       <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-      <button id="langToggle" class="lang-toggle" aria-label="Cambiar idioma">ES</button>
     </div>
   </div>
 </footer>
