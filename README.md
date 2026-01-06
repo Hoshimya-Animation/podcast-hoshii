@@ -21,18 +21,16 @@ It includes:
 
 ---
 
-### ✅ What you can do
-- 🎨 Customize episodes, events, and newsletter backend  
-- 🌓 Switch between dark/light theme  
-- 🌐 Change language (ES/EN)  
-- 🔍 Search across pages  
-- 📩 Subscribe to newsletter (demo alert)  
+### You can ✅
+- Explore the source code to understand how the website is built.
+- Contribute to the project by submitting pull requests.
+- Report issues or suggest new features.
 
-### ❌ What you cannot do
-- 🚫 Use `<meta http-equiv="X-Frame-Options">` in HTML (must be server header)  
-- 🚫 Expect search/pagination to work on pages without the proper containers (`#episodes-list`, `.articles-container`)  
-- 🚫 Remove the language button without protecting JS (otherwise errors occur)  
-- 🚫 Load images that don’t exist in `/img/` (cards will appear empty)  
+### You cannot ❌
+- Use the content or code for commercial purposes without permission.
+- Distribute the code without proper attribution.
+- Claim the work as your own.
+
 
 # License
 
@@ -61,18 +59,16 @@ Incluye:
 
 ---
 
-### ✅ Lo que sí puedes hacer
-- 🎨 Personalizar episodios, eventos y backend del boletín  
-- 🌓 Cambiar entre tema claro/oscuro  
-- 🌐 Alternar idioma (ES/EN)  
-- 🔍 Buscar en páginas  
-- 📩 Suscribirte al boletín (demo con alerta)  
+### Puedes ✅
+- Explorar el código fuente para entender cómo se construye el sitio web.
+- Contribuir al proyecto enviando solicitudes de extracción.
+- Reportar problemas o sugerir nuevas características.
 
-### ❌ Lo que no puedes hacer
-- 🚫 Usar `<meta http-equiv="X-Frame-Options">` en HTML (debe ser encabezado del servidor)  
-- 🚫 Esperar que búsqueda/paginación funcionen en páginas sin los contenedores (`#episodes-list`, `.articles-container`)  
-- 🚫 Quitar el botón de idioma sin proteger el JS (si no, da error)  
-- 🚫 Cargar imágenes que no existen en `/img/` (las tarjetas se verán vacías)  
+### No puedes ❌
+- Usar el contenido o el código con fines comerciales sin permiso.
+- Distribuir el código sin la atribución adecuada.
+- Reclamar el trabajo como propio.
+
 
 # Licencia
 Este proyecto está licenciado bajo la Licencia MIT - vea el archivo [LICENSE](LICENSE) para más detalles.
