@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="auto">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="qJdYHK8haQy_jFVTztt1OP-vOTPtfspZGEkd_umjJ6I" />
-    <title>Hoshimya Podcast</title>
+    <title>Episodios Podcast</title>
 
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat:wght@400;700&family=Roboto:wght@400;700&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <!-- Iconos -->
-    <link rel="icon" type="img/stars" href="img/stars.ico">
+    <link rel="icon" type="img/stars" href="../img/stars.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- SEO -->
@@ -26,7 +27,7 @@
       <div class="container header-inner">
         <!-- Logo -->
         <a href="https://www.hoshimyanimation.com" class="logo">
-          <img src="img/logo.png" alt="Logo de HoshimyAnimation">
+          <img src="../img/logo.png" alt="Logo de HoshimyAnimation">
         </a>
 
         <!-- Navegación -->
@@ -37,30 +38,10 @@
         </nav>
       </div>
     </header>
-
-
-   <main class="container">
-  <!-- Último episodio destacado -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <h1>Nuestro Último Episodio</h1>
-        <p>Bienvenidos a nuestro último episodio. En este episodio hablamos sobre...</p>
-        <div class="cta">
-          <a href="#" class="btn primary">Escuchar en Spotify</a>
-          <a href="#" class="btn">Detalles</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="https://cdn.pixabay.com/photo/2025/05/14/16/13/girl-9599953_1280.png" alt="Portada del Podcast">
-      </div>
-    </div>
-  </section>
-
-  <!-- Grid principal con contenido y sidebar -->
-  <section class="grid">
-    <div class="articles-container">
-      <!-- Aquí se renderizan las cards de episodios -->
+  <main class="container">
+    <h1>Todos los Episodios</h1>
+    <section class="episodes-grid">
+      <!-- Aquí se renderizan todas las cards de episodios -->
       <article class="card" data-tags="anime cultura">
         <img src="https://cdn.pixabay.com/photo/2022/12/01/04/40/backpacker-7628303_1280.jpg" alt="Episodio 1">
         <div class="card-body">
@@ -73,37 +54,12 @@
         </div>
       </article>
       <!-- más episodios -->
-    </div>
+    </section>
+  <h1>Todos los Episodios</h1>
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="widget search">
-        <label for="q"><strong>Buscar</strong></label>
-        <div class="search-box">
-          <input id="q" type="search" placeholder="Buscar noticias, eventos..." />
-          <button id="searchBtn" aria-label="Buscar">🔍</button>
-        </div>
-      </div>
-  
-      <div class="widget schedule" id="eventos">
-        <h3>Próximos eventos</h3>
-        <ul class="schedule-list">
-          <!-- <li><strong>12 Feb:</strong> Apertura festival — Estrenos</li> -->
-         <!--  <li><strong>13 Feb:</strong> Taller de japonés</li> -->
-         <!--  <li><strong>15 Feb:</strong> Meet & greet virtual</li> -->
-        </ul>
-      </div>
-
-      <div class="widget newsletter">
-        <h3>Boletín</h3>
-        <p>Recibe novedades de nuestro podcast.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="tu@email.com" required />
-          <button class="btn primary small" type="submit">Suscribirme</button>
-        </form>
-      </div>
-    </aside>
-  </section>
+  <!-- Contenedor de episodios -->
+<div id="episodes-list" class="episodes-grid"></div>
+<div id="pagination" class="pagination"></div>
 
 </main>
 
@@ -121,20 +77,18 @@
     <p>&copy; 2026 Hoshimy Animation — Ideas que iluminan cielos.</p>
 
     <nav class="footer-nav">
-      <a href="es/acerca.html">Acerca</a>
-      <a href="es/privacidad.html">Privacidad</a>
+      <a href="https://www.hoshimyanimation.com/es/acerca">Acerca</a>
+      <a href="https://www.hoshimyanimation.com/es/privacidad">Privacidad</a>
       <a href="mailto:contacto@hoshimyanimation.com">Contacto</a>
     </nav>
 
     <div class="footer-actions">
       <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-      <button id="langToggle" class="lang-toggle" aria-label="Cambiar idioma">EN</button>
+      <button id="langToggle" class="lang-toggle" aria-label="Cambiar idioma">ES</button>
     </div>
   </div>
 </footer>
-
-<script src="js/app.js"></script>
-
-
+<script src="../js/app.js"></script>
 </body>
 </html>
+
