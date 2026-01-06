@@ -87,37 +87,11 @@ async function buscarEnPaginas(term, paginas) {
   return resultados;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const q = document.getElementById('q');
-  const searchBtn = document.getElementById('searchBtn');
-  const articlesContainer = document.querySelector('.articles-container');
-  const contenidoOriginal = articlesContainer.innerHTML;
-  searchBtn.addEventListener('click', async () => {
-    const term = normalizar(q.value.trim());
-    if (!term) {
-      articlesContainer.innerHTML = contenidoOriginal; // reset
-      return;
-    }
-
-    const paginas = ['ep/podcast.html', /* agrega más páginas según sea necesario */];
-    const resultados = await buscarEnPaginas(term, paginas);
-
-    articlesContainer.innerHTML = resultados.length
-      ? resultados.join('')
-      : `<p>No se encontraron resultados para "${term}"</p>`;
-  });
-});
-
-// Datos de ejemplo de episodios
+// Datos de ejemplo de episodios dinámicos
 const episodes = [
-  { id: 1, title: "Mangakas que hicieron historia", desc: "Este episodio profundiza en las vidas y obras de mangakas influyentes que han dejado una marca indeleble en la industria del manga.", image: "../img/ai-generated5.webp" },
-/*   { id: 2, title: "Puentes Japón-México", desc: "Intercambios culturales y profesionales", image: "img/ep2.webp" },
-  { id: 3, title: "Corea y creatividad", desc: "Sistema educativo y proyectos creativos", image: "img/ep3.webp" },
-  { id: 4, title: "China contemporánea", desc: "Retos en animación latino", image: "img/ep4.webp" },
-  { id: 5, title: "Rusia y manga", desc: "Cruces literarios y manga", image: "img/ep5.webp" },
-  { id: 6, title: "Profesionalismo en podcast", desc: "Buenas prácticas de producción", image: "img/ep6.webp" },
-  { id: 7, title: "Anime en Latinoamérica", desc: "Historia y recepción", image: "img/ep7.webp" },
-  { id: 8, title: "Invitado especial", desc: "Conversación con sociólogo", image: "img/ep8.webp" }  */
+  { id: 1, title: "Mangakas que hicieron historia", desc: "Este episodio profundiza en las vidas y obras de mangakas influyentes.", image: "../img/ai-generated5.webp", published: "Ene 2026", duration: "45 min", link:"https://google.com" },
+  //{ id: 2, title: "Puentes Japón-México", desc: "Intercambios culturales y profesionales", image: "img/ep2.webp", published: "Feb 2026", duration: "50 min" },
+  // ... más episodios
 ];
 
 // Configuración
@@ -128,10 +102,11 @@ let currentPage = 1;
 const episodesListEl = document.getElementById("episodes-list");
 const paginationEl = document.getElementById("pagination");
 
-// Renderizar episodios
+// Renderizar episodios dinámicos
 function renderEpisodes(page = 1) {
-  if (!episodesListEl) return; // evita error en otras páginas
-    episodesListEl.innerHTML = "";
+  if (!episodesListEl) return;
+  episodesListEl.innerHTML = "";
+
   const start = (page - 1) * ITEMS_PER_PAGE;
   const slice = episodes.slice(start, start + ITEMS_PER_PAGE);
 
@@ -139,17 +114,117 @@ function renderEpisodes(page = 1) {
     const card = document.createElement("article");
     card.className = "episode-card";
     card.innerHTML = `
-      <img src="${ep.image}" alt="Portada ${ep.title}">
-      <div class="episode-body">
-        <h3 class="episode-title">${ep.title}</h3>
-        <p class="episode-desc">${ep.desc}</p>
-      </div>
+      <a href="${ep.link}" class="episode-link">
+        <img src="${ep.image}" alt="Portada ${ep.title}">
+        <div class="episode-body">
+          <h3 class="episode-title">${ep.title}</h3>
+          <p class="episode-desc">${ep.desc}</p>
+          <div class="card-meta">
+            <span>Publicado: ${ep.published}</span>
+            <span>Duración: ${ep.duration}</span>
+          </div>
+        </div>
+      </a>
     `;
     episodesListEl.appendChild(card);
   });
 
   renderPagination(page);
 }
+
+
+// Renderizar paginación
+function renderPagination(activePage) {
+  if (!paginationEl) return;
+  paginationEl.innerHTML = "";
+  const totalPages = Math.ceil(episodes.length / ITEMS_PER_PAGE);
+
+  for (let p = 1; p <= totalPages; p++) {
+    const btn = document.createElement("button");
+    btn.className = "page-number" + (p === activePage ? " active" : "");
+    btn.textContent = p;
+    btn.addEventListener("click", () => {
+      currentPage = p;
+      renderEpisodes(currentPage);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    paginationEl.appendChild(btn);
+  }
+}
+
+// Inicializar grid dinámico
+document.addEventListener('DOMContentLoaded', () => {
+  if (episodesListEl && paginationEl) {
+    renderEpisodes(currentPage);
+  }
+});
+
+//  Buscador que combina artículos estáticos y episodios dinámicos
+document.addEventListener('DOMContentLoaded', () => {
+  const q = document.getElementById('q');
+  const searchBtn = document.getElementById('searchBtn');
+  const articlesContainer = document.querySelector('.articles-container');
+  const contenidoOriginal = articlesContainer ? articlesContainer.innerHTML : "";
+
+  if (searchBtn) {
+    searchBtn.addEventListener('click', () => {
+      const term = normalizar(q.value.trim());
+      if (!term) {
+        if (articlesContainer) articlesContainer.innerHTML = contenidoOriginal;
+        if (episodesListEl) renderEpisodes(currentPage);
+        return;
+      }
+
+      // Buscar en episodios dinámicos
+      const resultadosGrid = episodes.filter(ep =>
+      normalizar(ep.title).includes(term) ||
+      normalizar(ep.desc).includes(term)
+      ).map(ep => `
+        <article class="episode-card">
+          <a href="${ep.link}" class="episode-link">
+            <img src="${ep.image}" alt="Portada ${ep.title}">
+            <div class="episode-body">
+              <h3 class="episode-title">${ep.title}</h3>
+              <p class="episode-desc">${ep.desc}</p>
+              <div class="card-meta">
+                <span>Publicado: ${ep.published}</span>
+                <span>Duración: ${ep.duration}</span>
+              </div>
+            </div>
+          </a>
+        </article>
+    `);
+
+
+      // Buscar en artículos estáticos
+      let resultadosStatic = [];
+      if (articlesContainer) {
+        articlesContainer.querySelectorAll('article.card').forEach(article => {
+          const text = normalizar(article.textContent);
+          if (text.includes(term)) {
+            resultadosStatic.push(article.outerHTML);
+          }
+        });
+      }
+
+      // Combinar resultados
+      const todosResultados = [...resultadosStatic, ...resultadosGrid];
+
+      if (articlesContainer) {
+        articlesContainer.innerHTML = todosResultados.length
+          ? todosResultados.join('')
+          : `<p>No se encontraron resultados para "${term}"</p>`;
+      } else if (episodesListEl) {
+        episodesListEl.innerHTML = todosResultados.length
+          ? todosResultados.join('')
+          : `<p>No se encontraron resultados para "${term}"</p>`;
+      }
+    });
+  }
+});
+
+
+
 
 // Renderizar paginación
 function renderPagination(activePage) {
