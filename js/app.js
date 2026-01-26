@@ -33,11 +33,11 @@ function applyLang(lang){
   langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
   localStorage.setItem('lang', lang);
 
-  // Redirige según idioma
+  // Redirige según idioma (URLs limpias en GitHub Pages)
   if(lang === 'en'){
     window.location.href = "index-en.html"; // versión en inglés
   } else if(lang === 'es'){
-    window.location.href = "index.html";    // versión en español
+    window.location.href = "/";    // versión en español
   }
 }
 
@@ -49,6 +49,9 @@ if (!localStorage.getItem('lang')) {
     langToggle.textContent = currentLang === 'es' ? 'EN' : 'ES';
   }
 }
+
+
+
 
 //Normilizar busqueda
 function normalizar(texto) {
