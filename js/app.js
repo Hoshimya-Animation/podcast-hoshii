@@ -41,14 +41,6 @@ function applyLang(lang){
   }
 }
 
-// Inicializar idioma solo la primera vez
-if (!localStorage.getItem('lang')) {
-  applyLang(browserLang);
-} else {
-  if (langToggle) {
-    langToggle.textContent = currentLang === 'es' ? 'EN' : 'ES';
-  }
-}
 
 
 
