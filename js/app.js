@@ -84,7 +84,7 @@ async function buscarEnPaginas(term, paginas) {
 
 // Datos de ejemplo de episodios dinámicos
 const episodes = [
-  { id: 1, title: "Mangakas que hicieron historia", desc: "Este episodio profundiza en las vidas y obras de mangakas influyentes.", image: "../img/ai-generated5.webp", published: "Ene 2026", duration: "45 min", link:"https://google.com" },
+  { id: 1, title: "El actor de voz que volvió del Oriente", desc: "En este episodio entrevistamos a Carlos Hugo Hidalgo, un actor de voz que comparte su trayectoria en la doblaje mexicano y cómo esta forma de arte ha conectado México con Asia y Latinoamérica.", image: "https://i.scdn.co/image/ab6765630000ba8abe5a7ae2048b0776823a35ef", published: "Feb 2026", duration: "1 hr 16 min", link:"https://open.spotify.com/episode/4m12auDlg8zzwqegfPUFxk?si=e5Xx7NjQTsutx6tOp3SRfA" },
   //{ id: 2, title: "Puentes Japón-México", desc: "Intercambios culturales y profesionales", image: "img/ep2.webp", published: "Feb 2026", duration: "50 min" },
   // ... más episodios
 ];
